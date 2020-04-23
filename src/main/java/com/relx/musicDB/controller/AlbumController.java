@@ -1,5 +1,11 @@
 package com.relx.musicDB.controller;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,12 +19,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import com.relx.musicDB.exception.RecordAlreadyExistsException;
 import com.relx.musicDB.exception.RecordNotFoundException;
 import com.relx.musicDB.model.Album;
 import com.relx.musicDB.service.AlbumService;
-
 
 @RestController
 @RequestMapping("/artists")
@@ -26,7 +32,7 @@ public class AlbumController {
 
 		@Autowired
 	AlbumService albumService;
-	
+		  @Autowired
 
 	public AlbumController(AlbumService albumService) {
 		this.albumService = albumService;
@@ -66,6 +72,7 @@ public class AlbumController {
 	 return new ResponseEntity<Void>(HttpStatus.CONFLICT); } return new
 	  ResponseEntity<Void>(HttpStatus.OK); 
 	}
-	 
-	
+	  
+
+	  
 }
